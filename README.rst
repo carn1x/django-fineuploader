@@ -19,6 +19,7 @@ This is just a example, please read the code to see what really happens.
 
     # models.py #####################################################
     from django.db import models
+    from django.core.urlresolvers import reverse
 
 
     class Picture(models.Model):
@@ -28,9 +29,8 @@ This is just a example, please read the code to see what really happens.
         def __unicode__(self):
             return self.image.name
 
-        @models.permalink
         def get_absolute_url(self):
-            return ('images_list', ())
+            return reverse('images_list', args=[])
 
     # forms.py ######################################################
     from django.forms import ModelForm
